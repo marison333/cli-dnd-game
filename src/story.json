@@ -62,11 +62,58 @@
       ]
     },
     "next": {
-      "inside": "meet_guide",
+      "inside": "inside_shop",
       "continue": "meet_guide"
     }
   },
-
+  "inside_shop": {
+    "text": [
+      "you go inside the shop hoping to buy supplies for your quest.",
+      "The shopkeeper eyes you carefully...",
+      "\"You look like trouble... or dead soon,\" the shopkeeper mutters.",
+      "But you quickly realize you have no gold."
+    ],
+    "question": "What are you going to do?",
+    "options": ["leave", "steal"],
+    "results": {
+      "leave": [
+        "Embarrassed, you leave the shop."
+      ],
+      "steal": [
+        "You decide to steal something from the shop."
+      ]
+    },
+    "next": {
+      "leave": "meet_guide",
+      "steal": "steal_attempt"
+    }
+  },
+  "steal_attempt": {
+    "text": [
+     "The shop keeper notices you trying to steal and shouts, \"Thief! Guards!\"",
+      "You try to escape but the shopkeeper is surprisingly fast and tackles you to the ground.",
+      "You have no choice but to fight him off."
+    ],
+     "monster": {
+      "name": "Shop keeper",
+      "health": 80,
+      "loot": ["Gold Pouch"]
+    },
+    "question": "",
+    "options": [],
+    "results": {},
+    "next": "post_shop_steal"
+  },
+  "post_shop_steal": {
+    "text": [
+      "After defeating the shopkeeper, you quickly grab a gold pouch from his pocket.",
+      "You escape the shop and head towards the capital entrance."
+    ],
+    "question": "",
+    "options": [],
+    "results": {},
+    "next": "meet_guide"
+  },
   "meet_guide": {
     "text": [
       "You finally arrive at the entrance where a guide waits.",
