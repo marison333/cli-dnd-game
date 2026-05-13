@@ -1,0 +1,9 @@
+{
+    "start": "accept_quest",
+    "files": [
+        "capital/intro.json",
+        "capital/city_events.json",
+        "dungeon/entrance.json",
+        "dungeon/crypt.json"
+    ]
+}

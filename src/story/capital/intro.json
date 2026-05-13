@@ -1,0 +1,28 @@
+{
+    "accept_quest": {
+        "type": "choice",
+        "text": [
+            "It appears you are a traveling Hero seeking a quest correct?",
+            "The Kingdom of Valoria has not known peace for quite some time..."
+        ],
+        "question": "Do you accept this quest?",
+        "options": [
+            "yes",
+            "no"
+        ],
+        "results": {
+            "yes": [
+                "There is a Dungeon called the Crypt of the Forgotten King.",
+                "Many who entered never returned...",
+                "But rumors speak of treasures beyond imagination."
+            ],
+            "no": [
+                "Safe travels adventurer."
+            ]
+        },
+        "next": {
+            "yes": "dungeon_location",
+            "no": null
+        }
+    }
+}

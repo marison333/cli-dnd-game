@@ -1,0 +1,119 @@
+{
+    "dungeon_location": {
+        "type": "choice",
+        "text": [],
+        "question": "Would you like to know where this Dungeon is?",
+        "options": [
+            "yes",
+            "no"
+        ],
+        "results": {
+            "yes": [
+                "Head South towards the entrance of the capital.",
+                "Guides there can lead you to the dungeon."
+            ],
+            "no": [
+                "That's too bad, have a good day!"
+            ]
+        },
+        "next": {
+            "yes": "shop_choice",
+            "no": null
+        }
+    },
+    "shop_choice": {
+        "type": "choice",
+        "text": [
+            "While heading to the entrance you notice a small shop for weapons and armor."
+        ],
+        "question": "Would you like to go inside or continue?",
+        "options": [
+            "inside",
+            "continue"
+        ],
+        "results": {
+            "inside": [
+                "You enter the shop hoping to buy armor..."
+            ],
+            "continue": [
+                "You decide to continue towards the dungeon entrance, ignoring the shop."
+            ]
+        },
+        "next": {
+            "inside": "inside_shop",
+            "continue": "meet_guide"
+        }
+    },
+    "inside_shop": {
+        "type": "choice",
+        "text": [
+            "The shopkeeper eyes you carefully...",
+            "\"You look like trouble... or dead soon,\" the shopkeeper mutters.",
+            "But you quickly realize you have no gold."
+        ],
+        "question": "what do you do?",
+        "options": [
+            "leave",
+            "steal"
+        ],
+        "results": {
+            "leave": [
+                "Embarrassed, you leave the shop."
+            ],
+            "steal": [
+                "You attempt to steal some armor but are caught by the shopkeeper.",
+                "He calls the guards and you are thrown in jail.",
+                "Game Over."
+            ]
+        },
+        "next": {
+            "leave": "meet_guide",
+            "steal": "steal_attempt"
+        }
+    },
+    "steal_attempt": {
+        "type": "combat",
+        "monster": {
+            "name": "Shopkeeper",
+            "health": 80,
+            "loot": [
+                "steel dagger",
+                "gold pouch"
+            ]
+        },
+        "question": "",
+        "options": [],
+        "results": {},
+        "next": {
+            "win": "meet_guide",
+            "lose": false
+        }
+    },
+    "meet_guide": {
+        "type": "choice",
+        "text": [
+            "You finally arrive at the entrance where a guide waits.",
+            "He studies you in silence..."
+        ],
+        "question": "The guide asks, \"Do you want to hire me to lead you to the dungeon?\"",
+        "options": [
+            "yes",
+            "no"
+        ],
+        "results": {
+            "yes": [
+                "\"Then listen carefully... many have tried.\"",
+                "You begin the long walk through the forest.",
+                "After hours of travel, the entrance of the Crypt stands before you.",
+                "Ancient stone doors covered in runes tower above you."
+            ],
+            "no": [
+                "Ah... my mistake. Safe travels."
+            ]
+        },
+        "next": {
+            "yes": "enter_crypt",
+            "no": null
+        }
+    }
+}
