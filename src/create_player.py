@@ -4,9 +4,8 @@ from utils import slow_print
 
 def create_player():
     while True:
-        slow_print("Hero, what is your name? ") 
+        slow_print("Hero, what is your name?") 
         name = input("> ").strip()
-        
         if 3 <= len(name) <= 10:
             return Player(name, 100, [])
         
