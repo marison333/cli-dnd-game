@@ -1,13 +1,12 @@
 import time
 import random
-from utils import slow_print, print_screen
+from utils import slow_print, print_screen, ask_choice
 from entities.player import Player
 from entities.monster import Monster
 
 hit_threshold = 10 # 50% chance for a succesfull attack
 hit_threshold_flee = 0 # if player is trying to flee, monster has a guaranteed hit
 flee_threshold = 15 # 30% chance to flee successfully
-fight_result = ""
 
 CLEAR_SCREEN = "\033[H\033[J"
 DEATH_SCREEN = 'assets/death_screen.txt'
@@ -96,13 +95,10 @@ def fight(player, monster) -> str:
     fled = False
 
     while player.health > 0 and monster.health > 0:
-        action = ""
-
-        while action not in ["attack", "flee"]:
-            time.sleep(2)
-            print(CLEAR_SCREEN, end="")
-            print_status(player, monster,)
-            action = input("\nChoose action [attack/flee]: ").strip().lower()
+        time.sleep(2)
+        print(CLEAR_SCREEN, end="")
+        print_status(player, monster,)
+        action = ask_choice("Choose your action:", ["Attack", "Flee"]).lower()
 
         if action == "flee":
             fled = attempt_flee(player, monster)
@@ -131,12 +127,10 @@ def fight(player, monster) -> str:
 
     print_status(player, monster)
 
-    # end result
     if player.health > 0 and monster.health <= 0:
         print(CLEAR_SCREEN, end="")
         print_action(f"{player.name} win the fight!")
 
-        # ❤️ NIEUW: heal 30%
         heal_amount = int(player.max_health * 0.3)
         player.health = min(player.health + heal_amount, player.max_health)
         print_action(f"{player.name} recovers {heal_amount} HP!")
