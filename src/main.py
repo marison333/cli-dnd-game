@@ -12,6 +12,11 @@ def start():
     game_state = create_game_state(player)
 
     play_story(story, game_state)
+
+    if game_state['player'].health <= 0:
+        slow_print("\nYour adventure ends here. Thanks for playing!")
+        return
+    
     event = consume_event(game_state)
     if event:
         slow_print(f"\nAn {game_state['active_monster']} appears!")
